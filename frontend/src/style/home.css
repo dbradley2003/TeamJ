@@ -1,23 +1,30 @@
 
-.background {
-    background-color: #252e33 ;
-    padding: 5%;
+  .background {
+      background-color: #252e33 ;
+      padding: 5%;
 
-  }
+    }
 
-  button{
+  .btn{
+    color: white;
+    margin: 15px;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: #50575B;
     display:inline
   }
 
-h1{
+
+.title{
   color: white;
   text-align: center;
   font-family: "bebas-neue-regular";
-}
-h2{
-  color:white;
-  text-align: center;
-}
+  }
+
+  h2{
+    color:white;
+    text-align: center;
+  }
 
 .home-button{
   color: white;
@@ -25,6 +32,7 @@ h2{
   padding: 15px;
   border-radius: 15px;
   background-color: #50575B;
+  display:inline
 
 }
 
@@ -48,10 +56,14 @@ h2{
   padding-top: 30px;
 }
 
-/* label{
+.label{
   color:white;
-  font-size: 30px;
-} */
+  font-size: 20px;
+  padding-left: 10px;
+  margin: 10px;
+}
+  
+
 
 /* input[type="text"]{
   font-size: 40px;

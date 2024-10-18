@@ -2,6 +2,7 @@ import { useState } from 'react';
 import api from '../api'
 import { useNavigate } from 'react-router-dom';
 import { ACCESS_TOKEN, REFRESH_TOKEN } from '../constants';
+import "../style/home.css"
 
     
 function Login(){
@@ -60,9 +61,10 @@ setError(true);
     
     
     return (
+    <div className = "background">
     <div className="form">
     <div>
-    <h1>Login</h1>
+    <h1 className = "title">Login</h1>
     </div>
 
     
@@ -81,6 +83,7 @@ setError(true);
     Submit
     </button>
     </form>
+    </div>
     </div>
     );
     }
