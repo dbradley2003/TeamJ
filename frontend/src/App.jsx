@@ -7,6 +7,7 @@ import Login from "./pages/login"
 import Home from "./pages/home"
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "./style/home.css"
 // import '@fortawesome/fontawesome-free/css/all.min.css';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
 
   
   return (
+  
      <BrowserRouter>
 
       <Routes>    
@@ -23,9 +25,9 @@ function App() {
       <Route path="/login" element={<Login />} />
       </Routes> 
 
-       
+      
      </BrowserRouter> 
-
+    
     
   )
           }

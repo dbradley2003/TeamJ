@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import api from '../api'
 import { useNavigate } from 'react-router-dom';
-import { ACCESS_TOKEN } from '../constants';
-import "../style/home.css"
-
+import { ACCESS_TOKEN, REFRESH_TOKEN } from '../constants';
 
     
 function Login(){
@@ -33,7 +31,7 @@ setError(true);
     } else {
 
     try{
-        const response = await api.post('/rest-auth/login/',{
+        const response = await api.post('/api/token/',{
             'username': username,
             'password': password
           
@@ -44,10 +42,14 @@ setError(true);
         })
        
         if (response.status === 200){
-        const token = response.data.key
-        localStorage.setItem(ACCESS_TOKEN, token);
+        const access_token = response.data.access
+        const refresh_token = response.data.refresh
+        localStorage.setItem(ACCESS_TOKEN, access_token);
+        localStorage.setItem(REFRESH_TOKEN, refresh_token);
         navigate('/home')
-        console.log("Access token stored:", token);
+        const newToken = localStorage.getItem(ACCESS_TOKEN)
+        console.log("Access token stored:",newToken );
+        // console.log(localStorage.getItem('ACCESS_TOKEN'));
     }
     }catch(error){
             console.log(error)
@@ -58,7 +60,7 @@ setError(true);
     
     
     return (
-    <div className="form" class="background">
+    <div className="form">
     <div>
     <h1>Login</h1>
     </div>
@@ -66,12 +68,12 @@ setError(true);
     
     <form>
     {/* Labels and inputs for form data */}
-    <label class="labels" className="label">Username</label>
+    <label className="label">Username</label>
     <input onChange={handleName} className="input"
     value={username} type="text" />
       
     
-    <label class="labels" className="label">Password</label>
+    <label className="label">Password</label>
     <input onChange={handlePassword} className="input"
     value={password} type="password" />
     
