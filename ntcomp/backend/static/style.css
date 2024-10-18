@@ -1,0 +1,56 @@
+
+body {
+    background-color: #252e33;
+    padding: 5%;
+
+  }
+
+h1{
+  color: white;
+  text-align: center;
+  font-family: "bebas-neue-regular";
+}
+h2{
+  color:white;
+  text-align: center;
+}
+
+button{
+  color: white;
+  margin: 15px;
+  padding: 15px;
+  border-radius: 15px;
+  background-color: #50575B;
+
+}
+
+.homebar{
+  text-align: center;
+
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.bebas-neue-regular {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#currinput{
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  padding-top: 30px;
+}
+
+label{
+  color:white;
+  font-size: 30px;
+}
+
+input[type="text"]{
+  font-size: 40px;
+  background-color: #50575B;
+  width: 20%;
+}
