@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,7 +25,7 @@ SECRET_KEY = 'django-insecure-e+qpz6_@-fvj=79-a9xzwiv_x!)2c9rnw%q=_td_8!285bjwr0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 SITE_ID = 1
 
@@ -43,29 +42,19 @@ SITE_ID = 1
 
 
 REST_FRAMEWORK = {
-   
-    'DEFAULT_AUTHENTICATION_CLASS': [
-        'rest_framework_simplejwt.authentication.JWTAuthentication'
-    ],
-     'DEFAULT_PERMISSION_CLASSES': [
+    'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
     ],
+    'DEFAULT_AUTHENTICATION_CLASSS': [
+        'rest_framework.authentication.JWTAuthentication'
+    ]
 }
 
 AUTHENTICATION_BACKENDS = [
+
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
-
-SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),  # Access token expiry time
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),    # Refresh token expiry time
-    'ROTATE_REFRESH_TOKENS': True,                  # Issue new refresh token on access token refresh
-    'BLACKLIST_AFTER_ROTATION': True,               # Blacklist old refresh tokens after refresh
-    'ALGORITHM': 'HS256',                           # JWT signing algorithm
-    'SIGNING_KEY': SECRET_KEY,                      # Ensure SECRET_KEY is correctly set
-    'AUTH_HEADER_TYPES': ('Bearer',),               # Prefix for the Authorization header
-}
 
 
 # Application definition
@@ -85,11 +74,11 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'django.contrib.sites',
-    'backend'
     
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -97,7 +86,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-     'corsheaders.middleware.CorsMiddleware',
     'allauth.account.middleware.AccountMiddleware',
     
 ]
@@ -132,9 +120,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-DJ_REST_AUTH = {
-    'TOKEN_MODEL': None,  # Disable Token-based Authentication
-}
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -182,18 +168,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 EMAIL_FILE_PATH = BASE_DIR / 'emails'
 
-
-
-# CORS_ALLOW_METHODS = [
-#     'GET',
-#     'POST',
-#     'PUT',
-#     'DELETE',
-#     'OPTIONS',
-#     'HEAD'
-# ]
-
 CORS_ALLOW_ALL_ORIGINS = True
+
 CORS_ALLOW_CREDENTIALS = True
+
 ALLOWED_HOSTS = ['*']
+
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False

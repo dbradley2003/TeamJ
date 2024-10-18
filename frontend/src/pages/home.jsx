@@ -1,20 +1,14 @@
 
 import "../style/home.css"
-import api from "../api"
+import { useState } from 'react'
+import {Link} from "react-router-dom";
+
 
 function Home() {
 
-
-    const viewAssets = async () => {
-            try{
-                const response = await api.get('/api/assetview/')
-                console.log(response.data)
-
-            }catch(error){
-                console.log(error)
-            }
-            
-            };   
+    const [amount1, setAmount1] = useState('0.00')
+    const [currency1,setCurrency1] = useState('')
+    const [currency2,setCurrency2] = useState('')
 
 
 
@@ -30,54 +24,66 @@ function Home() {
     
         <header>
             <div>
-                <h1>Currency Exchange</h1>
+                <h1 className ='title'>Currency Swap</h1>
             </div>
             <div>
                 <ul className="homebar">
-                    <button className="home-button">Simulation</button>
-                    <button className="home-button">Tools</button>
-                    <button className="home-button" onClick={viewAssets}>Assets</button>
+                    <Link to="/Dashboard"><button className="home-button">Simulation</button></Link>
+                    <Link to="/trader"><button className="home-button">Portfolio</button></Link>
                 </ul>
             </div>
         </header>
     
         <div>
             <div>
-                <h2>Trader History</h2>
+                <h2 className = 'subtitle'>Currency History</h2>
             </div>
+            {/*<div>
+                render() {
+                    Dataanalysis()
+            </div>*/}
             <div>
-                <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
-                <canvas id="chart"></canvas>
-            </div>
-            <div>
-                <h2>Currency Converter</h2>
+                <h2 className = 'subtitle'>Currency Converter</h2>
             </div>
             <div id = "currinput">
                 <div id="currinput">
-                <label htmlFor="cars">Choose a currency:</label>
-                    <select name="cars" id="cars">
-                        <option value="volvo">USD</option>
-                        <option value="saab">MXN</option>
-                        <option value="mercedes">CAD</option>
-                        <option value="audi">JPY</option>
-                    </select>
+                <label htmlFor={'currency1'}> </label>
+                <input
+                    id={'currency1'}
+                    type={'text'}
+                    value={currency1}
+                    onChange={event => {
+                    setState(event.target.value)
+                    }}
+                />
                 </div>
                 <div id="currinput">
-                <label htmlFor="cars">Choose a currency:</label>
-                    <select name="cars" id="cars">
-                        <option value="volvo">USD</option>
-                        <option value="saab">MXN</option>
-                        <option value="mercedes">CAD</option>
-                        <option value="audi">JPY</option>
-                    </select>
+                <label htmlFor={'currency2'}> </label>
+                <input
+                    id={'currency2'}
+                    type={'text'}
+                    value={currency2}
+                    onChange={event => {
+                    setState(event.target.value)
+                    }}
+                />
                 </div>
             </div>
             <div id ="currinput">
                 <p>Exchange rate</p>
                 <p>How much curr1 for curr2?</p>
-                <input type="text" tag="curr1" />
-                <input type="text" tag="curr1" />
-                <p>value goes here</p>
+                <label htmlFor={'amount1'}> </label>
+                <input
+                    id={'amount1'}
+                    type={'text'}
+                    value={amount1}
+                    onChange={event => {
+                    setState(event.target.value)
+                    }}
+                />
+                <div>
+                    <h2>Amount: convert_currency({amount1}, {currency1}, {currency2})</h2>
+                </div>
             </div>
     
         </div>
@@ -85,6 +91,8 @@ function Home() {
     
    
     );
+    
 }
+
 
 export default Home;
