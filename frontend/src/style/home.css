@@ -4,16 +4,13 @@
 
   }
 
-  button{
-    display:inline
-  }
 
-h1{
+.title{
   color: white;
   text-align: center;
   font-family: "bebas-neue-regular";
 }
-h2{
+.subtitle{
   color:white;
   text-align: center;
 }
@@ -24,6 +21,7 @@ h2{
   padding: 15px;
   border-radius: 15px;
   background-color: #50575B;
+  display:inline
 
 }
 
@@ -47,10 +45,10 @@ h2{
   padding-top: 30px;
 }
 
-/* label{
+.labels{
   color:white;
   font-size: 30px;
-} */
+} 
 
 /* input[type="text"]{
   font-size: 40px;

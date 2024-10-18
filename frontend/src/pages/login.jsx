@@ -2,6 +2,7 @@ import { useState } from 'react';
 import api from '../api'
 import { useNavigate } from 'react-router-dom';
 import { ACCESS_TOKEN } from '../constants';
+import "../style/home.css"
 
     
 function Login(){
@@ -56,24 +57,24 @@ setError(true);
     
     
     return (
-    <div className="form">
+    <div className="form" class="background">
     <div>
-    <h1>Login</h1>
+    <h1 class = "title ">Login</h1>
     </div>
 
     
     <form>
     {/* Labels and inputs for form data */}
-    <label className="label">Username</label>
+    <label class="labels" className="label">Username</label>
     <input onChange={handleName} className="input"
     value={username} type="text" />
       
     
-    <label className="label">Password</label>
+    <label class="labels" className="label">Password</label>
     <input onChange={handlePassword} className="input"
     value={password} type="password" />
     
-    <button onClick={handleSubmit} className="btn" type="submit">
+    <button class = "homebutton" onClick={handleSubmit} className="btn" type="submit">
     Submit
     </button>
     </form>
