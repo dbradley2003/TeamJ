@@ -1,18 +1,15 @@
 
 import "../style/home.css"
 import { useState } from 'react'
+import {Link} from "react-router-dom";
 
 
 function Home() {
 
-    const [amount1, setAmount1] = useState('')
+    const [amount1, setAmount1] = useState('0.00')
+    const [currency1,setCurrency1] = useState('')
+    const [currency2,setCurrency2] = useState('')
 
-
-
-    const handleClick = () => {
-        // 👇 "message" stores input field value
-        setUpdated(amount1);
-      };
 
 
     return (
@@ -27,45 +24,49 @@ function Home() {
     
         <header>
             <div>
-                <h1 class ='title'>Currency Swap</h1>
+                <h1 className ='title'>Currency Swap</h1>
             </div>
             <div>
-                <ul class="homebar">
-                    <button className="home-button">Simulation</button>
-                    <button className="home-button">Portfolio</button>
+                <ul className="homebar">
+                    <Link to="/Dashboard"><button className="home-button">Simulation</button></Link>
+                    <Link to="/trader"><button className="home-button">Portfolio</button></Link>
                 </ul>
             </div>
         </header>
     
         <div>
             <div>
-                <h2 class = 'subtitle'>Trader History</h2>
+                <h2 className = 'subtitle'>Currency History</h2>
             </div>
+            {/*<div>
+                render() {
+                    Dataanalysis()
+            </div>*/}
             <div>
-                <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
-                <canvas id="chart"></canvas>
-            </div>
-            <div>
-                <h2 class = 'subtitle'>Currency Converter</h2>
+                <h2 className = 'subtitle'>Currency Converter</h2>
             </div>
             <div id = "currinput">
                 <div id="currinput">
-                <label htmlFor="cars">Choose a currency:</label>
-                    <select name="cars" id="cars">
-                        <option value="volvo">USD</option>
-                        <option value="saab">MXN</option>
-                        <option value="mercedes">CAD</option>
-                        <option value="audi">JPY</option>
-                    </select>
+                <label htmlFor={'currency1'}> </label>
+                <input
+                    id={'currency1'}
+                    type={'text'}
+                    value={currency1}
+                    onChange={event => {
+                    setState(event.target.value)
+                    }}
+                />
                 </div>
                 <div id="currinput">
-                <label htmlFor="cars">Choose a currency:</label>
-                    <select name="cars" id="cars">
-                        <option value="volvo">USD</option>
-                        <option value="saab">MXN</option>
-                        <option value="mercedes">CAD</option>
-                        <option value="audi">JPY</option>
-                    </select>
+                <label htmlFor={'currency2'}> </label>
+                <input
+                    id={'currency2'}
+                    type={'text'}
+                    value={currency2}
+                    onChange={event => {
+                    setState(event.target.value)
+                    }}
+                />
                 </div>
             </div>
             <div id ="currinput">
@@ -81,7 +82,7 @@ function Home() {
                     }}
                 />
                 <div>
-                    <h2>Amount: {amount1}</h2>
+                    <h2>Amount: convert_currency({amount1}, {currency1}, {currency2})</h2>
                 </div>
             </div>
     

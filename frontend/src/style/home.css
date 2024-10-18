@@ -38,20 +38,20 @@
   font-style: normal;
 }
 
-#currinput{
+/*#currinput{
   color: white;
   font-size: 20px;
   text-align: center;
   padding-top: 30px;
-}
+}*/
 
 .labels{
   color:white;
   font-size: 30px;
 } 
 
-/* input[type="text"]{
+#currinput{
   font-size: 40px;
   background-color: #50575B;
   width: 20%;
-} */
+}

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { ACCESS_TOKEN } from '../constants';
 import "../style/home.css"
 
+
     
 function Login(){
     
@@ -59,7 +60,7 @@ setError(true);
     return (
     <div className="form" class="background">
     <div>
-    <h1 class = "title ">Login</h1>
+    <h1>Login</h1>
     </div>
 
     
@@ -74,7 +75,7 @@ setError(true);
     <input onChange={handlePassword} className="input"
     value={password} type="password" />
     
-    <button class = "homebutton" onClick={handleSubmit} className="btn" type="submit">
+    <button onClick={handleSubmit} className="btn" type="submit">
     Submit
     </button>
     </form>
