@@ -1,7 +1,21 @@
 
 import "../style/home.css"
+import api from "../api"
 
 function Home() {
+
+
+    const viewAssets = async () => {
+            try{
+                const response = await api.get('/api/assetview/')
+                console.log(response.data)
+
+            }catch(error){
+                console.log(error)
+            }
+            
+            };   
+
 
 
     return (
@@ -19,10 +33,10 @@ function Home() {
                 <h1>Currency Exchange</h1>
             </div>
             <div>
-                <ul class="homebar">
+                <ul className="homebar">
                     <button className="home-button">Simulation</button>
                     <button className="home-button">Tools</button>
-                    <button className="home-button">Account</button>
+                    <button className="home-button" onClick={viewAssets}>Assets</button>
                 </ul>
             </div>
         </header>

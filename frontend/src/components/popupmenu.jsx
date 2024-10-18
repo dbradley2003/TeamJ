@@ -42,7 +42,7 @@ const PopupMenu = () => {
 
     const navigate = useNavigate();
     return (
-        <div>
+        <div className='front-background'>
         <div className={`modal fade ${show ? 'show d-block' : ''}`} tabIndex="-1" style={{ display: show ? 'block' : 'none' }} aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">

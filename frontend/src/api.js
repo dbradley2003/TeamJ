@@ -14,11 +14,16 @@ const api = axios.create({
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem(ACCESS_TOKEN);
-    if (token && config.url !=="/login" && config.url !=="/register") {
+    if (token) {
       config.headers.Authorization = `Bearer ${token}`;
+      console.log("Authorization Header: ", config.headers.Authorization);
       }
     return config;
-  },
+    },
+  (error) => {
+    console.error('Request Interceptor Error:', error);
+    return Promise.reject(error)
+  }
 )
 
 api.interceptors.response.use(
@@ -49,6 +54,9 @@ api.interceptors.response.use(
               return api(error.config);
           } catch (refreshError) {
               console.error('Token refresh failed:', refreshError);
+              localStorage.removeItem(ACCESS_TOKEN);
+              localStorage.removeItem(REFRESH_TOKEN);
+              window.location.href = '/login';
               // Handle token refresh failure (e.g., redirect to login)
               return Promise.reject(refreshError);
           }
