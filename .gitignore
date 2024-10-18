@@ -1,0 +1,4 @@
+.env
+.sass-cache
+.DS_store
+/ntcomp/env/
