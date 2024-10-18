@@ -5,6 +5,7 @@ import Register from "./pages/register"
 import Main from "./pages/front"
 import Login from "./pages/login"
 import Home from "./pages/home"
+import portfolio from "./pages/assets"
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./style/home.css"
@@ -23,6 +24,8 @@ function App() {
       <Route path="/register" element={<Register />} />
       <Route path="/" element={<Main />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/assetview" element={<AssetView />} />
+
       </Routes> 
 
       
