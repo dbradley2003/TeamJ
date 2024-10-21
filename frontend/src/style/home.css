@@ -1,61 +1,51 @@
+/* home.css */
 
-.background {
-    background-color: #252e33 ;
-    padding: 5%;
+/* Custom color variables */
+:root {
+  --deep-koamaru: #2C2D63;
+  --blue-charcoal: #232A32;
+}
 
-  }
+/* General background color */
+body {
+  background-color: #f8fafc;
+}
 
-  button{
-    display:inline
-  }
+.container{
+  padding-top:2 !important;
+}
 
-h1{
+/* Header styling */
+header {
+  background-color: var(--blue-charcoal);
+}
+
+h1 {
+  font-family:poppins !important;
   color: white;
-  text-align: center;
-  font-family: "bebas-neue-regular";
-}
-h2{
-  color:white;
-  text-align: center;
+  margin-bottom:0 !important;
+ 
 }
 
-.home-button{
+/* Button styling */
+.home-button {
+  padding: 0.35rem 1rem;
+  font-size: 1.185rem;
+  border-radius: 0.3rem;
+  background-color: var(--deep-koamaru);
   color: white;
-  margin: 15px;
-  padding: 15px;
-  border-radius: 15px;
-  background-color: #50575B;
-
+  border: none;
+  font-weight:semi-bold;
+  transition: background-color 0.3s ease, transform 0.2s;
+  font-family:poppins !important;
 }
 
-.homebar{
-  text-align: center;
-
-  margin-top: 50px;
-  margin-bottom: 50px;
+.home-button:hover {
+  background-color: lightgray;
+  transform: translateY(-1px);
 }
 
-.bebas-neue-regular {
-  font-family: "Bebas Neue", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+/* Card styling */
+.shadow {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
-
-#currinput{
-  color: white;
-  font-size: 20px;
-  text-align: center;
-  padding-top: 30px;
-}
-
-/* label{
-  color:white;
-  font-size: 30px;
-} */
-
-/* input[type="text"]{
-  font-size: 40px;
-  background-color: #50575B;
-  width: 20%;
-} */
-

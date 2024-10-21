@@ -4,9 +4,12 @@ from django.contrib.auth.models import User
 
 class CurrencyValues(models.Model):
    #Default Primary Key ID
-   Name = models.CharField(max_length=100)
-   value_in_usd = models.DecimalField(max_digits=10,decimal_places=8)
+   Name = models.CharField(max_length=100,default=None,unique=True)
+   value_in_usd = models.DecimalField(max_digits=30, decimal_places=8)
    last_updated = models.DateTimeField(auto_now=True)
+
+   def __str__(self):
+        return self.Name
 
 class UserAssets(models.Model):
     #UserID and CurrencyID are primary keys

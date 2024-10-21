@@ -2,7 +2,7 @@ import { useState } from 'react';
 import api from '../api'
 import { useNavigate } from 'react-router-dom';
 import { ACCESS_TOKEN, REFRESH_TOKEN } from '../constants';
-
+import "../style/login.css"
     
 function Login(){
     
@@ -60,28 +60,68 @@ setError(true);
     
     
     return (
-    <div className="form">
-    <div>
-    <h1>Login</h1>
-    </div>
-
-    
-    <form>
-    {/* Labels and inputs for form data */}
-    <label className="label">Username</label>
-    <input onChange={handleName} className="input"
-    value={username} type="text" />
       
-    
-    <label className="label">Password</label>
-    <input onChange={handlePassword} className="input"
-    value={password} type="password" />
-    
-    <button onClick={handleSubmit} className="btn" type="submit">
-    Submit
-    </button>
-    </form>
-    </div>
+        <div className="bg-gray-900 text-white min-h-screen flex items-center justify-center">
+          <div className="container d-flex justify-content-center align-items-center">
+            <div className="form bg-blue-900 rounded-lg shadow-lg px-8 py-5 w-100 max-w-2xl">
+              <div className="mb-4 text-center">
+                <h1 className="text-4xl font-bold text-yellow-400">LOGIN</h1>
+              </div>
+      
+              <form onSubmit={handleSubmit}>
+                {/* Username Input */}
+                <div className="form-group mb-3">
+                  <label htmlFor="username" className="form-label font-semibold">
+                    Username
+                  </label>
+                  <input
+                    onChange={handleName}
+                    value={username}
+                    type="text"
+                    className={`form-control ${error && !username ? 'is-invalid' : ''}`}
+                    id="username"
+                    placeholder="Enter username"
+                  />
+                  {error && !username && (
+                    <div className="invalid-feedback">Username is required</div>
+                  )}
+                </div>
+      
+                {/* Password Input */}
+                <div className="form-group mb-4">
+                  <label htmlFor="password" className="form-label font-semibold">
+                    Password
+                  </label>
+                  <input
+                    onChange={handlePassword}
+                    value={password}
+                    type="password"
+                    className={`form-control ${error && !password ? 'is-invalid' : ''}`}
+                    id="password"
+                    placeholder="Enter password"
+                  />
+                  {error && !password && (
+                    <div className="invalid-feedback">Password is required</div>
+                  )}
+                </div>
+      
+                {/* Submit Button */}
+                <div className="d-grid">
+                  <button type="submit" className="btn bg-yellow-400 text-blue-900 font-semibold hover:bg-yellow-500">
+                    <p className="size-50px" >Submit</p>
+                  </button>
+                </div>
+      
+                {/* Error Message */}
+                {error && username !== '' && password !== '' && (
+                  <div className="alert alert-danger mt-3" role="alert">
+                    Invalid username or password. Please try again.
+                  </div>
+                )}
+              </form>
+            </div>
+          </div>
+        </div>
     );
     }
     export default Login;

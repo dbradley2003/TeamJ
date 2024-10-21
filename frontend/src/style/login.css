@@ -1,0 +1,17 @@
+h1{
+    font-family:Poppins !important;
+    font-weight:bold ;
+}
+
+label{
+    font-family:Poppins !important;
+}
+
+input{
+    font-family:Poppins !important;
+}
+
+.btn-primary{
+    font-family:Poppins !important;
+    font-weight: bold !important;
+}

@@ -1,0 +1,130 @@
+/* Custom Modal Styles */
+
+.modal-dialog{
+  max-width: 800px !important;
+  width: 80% !important; /* Make it responsive to smaller screen sizes */
+  height: 80% !important; /* Set a fixed height based on viewport height */
+  max-height: 900px !important; /* Ensure a maximum height if viewport height is large */
+}
+
+.modal-content {
+    display: flex !important;
+    flex-direction: column !important; /* To allow body and footer to sit nicely */
+    background-color: #003594 !important; /* LA Rams Blue */
+    color: #ffffff !important; /* White Text */
+    border-radius: 10px !important; /* Rounded corners for a softer look */
+    padding-top: 1.5rem;
+    padding-bottom:1.5rem;
+    /* padding-left: 2.5rem !important;
+    padding-right: 2.5rem !important; */
+    height: 100% !important; /* Take full height of the modal dialog */
+    font-family:Poppins !important;
+    
+  }
+  
+  /* Header Styling */
+  .modal-header {
+
+    display: flex !important;
+    justify-content: center !important; /* Center title text horizontally */
+    align-items: center !important; /* Center title text vertically */
+    position: relative !important; /* Position relative for the close button to position absolutely */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1rem !important;
+  }
+
+  
+  
+  .modal-title {
+    color: #FFD100; /* LA Rams Yellow */
+    font-size: 1.5rem;
+    font-weight: 600;   
+  }
+
+  
+  /* Body Styling */
+  .modal-body p {
+    font-family:Poppins !important;
+    font-size: 1.1rem;
+    line-height: 2.0rem;
+    color:white;
+   
+  }
+
+  .modal-body{
+    display:flex;
+    flex-direction:column;
+    align-content: center !important;
+    justify-content: center;
+  }
+  
+  /* Button Styling */
+  .btn-primary {
+    background-color: #FFD100 !important; /* LA Rams Yellow */
+    color: #003594 !important; /* LA Rams Blue */
+    border: none !important;
+    width:20%;
+    font-size: 18px !important;
+    padding:8px !important;
+    font-weight: bold !important;
+  }
+  
+  
+  .btn-success {
+    background-color: #20c997 !important; /* A clean green accent */
+    color: #ffffff  !important;
+    border: none !important;
+    font-weight: bold !important;
+  }
+  
+  
+  /* Additional Modal Styles */
+  .modal-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    display: flex !important;
+    /* justify-content:center !important; */
+    justify-content:space-around !important;
+  }
+
+
+  .position-relative {
+    position: relative;
+    
+  }
+  
+  .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    z-index: 2;
+    padding: 0.5rem;
+    
+
+    border-radius: 50%;
+   
+  }
+  
+  .arrow-left {
+    left: 15px; /* Adjust based on design */
+    
+  }
+  
+  .arrow-right {
+    right: 15px; /* Adjust based on design */
+  }
+  
+  
+  .slide-content {
+    text-align:center ;
+   
+    margin: 0 3.5rem; /* Add margin to create space for arrows */
+  }
+
+
+
+
+  
